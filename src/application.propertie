@@ -1,0 +1,8 @@
+spring.application.name=DiaryApp
+spring.datasource.driver-class-name = org.postgresql.Driver
+spring.datasource.url = jdbc:postgresql://localhost:5432/practice
+spring.datasource.username = postgres
+spring.datasource.password = postgres
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.html
+logging.level.web=DEBUG
