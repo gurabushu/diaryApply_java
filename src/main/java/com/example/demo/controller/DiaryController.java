@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable; // ← 追加
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.InquireForm;
-import com.example.demo.Form.DiaryForm;
+import com.example.demo.form.DiaryForm;
 import com.example.demo.service.DiaryService;
 
 @Controller
@@ -21,14 +21,13 @@ public class DiaryController {
 	@Autowired
 	private DiaryService diaryService;
 
-	@GetMapping("/")
-	public String getList(Model model) {
-		model.addAttribute("diaryForm", new DiaryForm());
-		return "about";
+	@GetMapping({"/", "/top", "/top.html"})
+	public String top() {
+		return "top";
 	}
 
 	@GetMapping("/about")
-	public String about(Model model) {
+	public String getList(Model model) {
 		model.addAttribute("diaryForm", new DiaryForm());
 		return "about";
 	}
