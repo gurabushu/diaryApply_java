@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>日記の編集</title>
+	<link rel="stylesheet" href="/css/about.css">
+</head>
+
+<body>
+	<div class="main-header">
+		<div class="logo header-item"><a href="/">つぶやき日記</a></div>
+		<div class="nav-right">
+			<div class="header-item">
+				<a href="/diary">日記一覧</a>
+			</div>
+			<div class="header-item">
+				<a href="/diary/new">新規投稿</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="main" style="background-color: aliceblue; padding: 40px;">
+		<div class="post-wrapper">
+			<h2>日記の編集</h2>
+
+			<form th:action="@{/diary/{id}/update(id=${diary.id})}" method="post">
+				<div>
+					<label for="title">タイトル</label><br>
+					<input type="text" id="title" name="title" th:value="${diary.title}">
+				</div>
+
+				<div style="margin-top: 16px;">
+					<label for="body">本文</label><br>
+					<textarea id="body" name="body" rows="8" th:text="${diary.body}"></textarea>
+				</div>
+
+				<div style="margin-top: 16px;" class="button-wrapper">
+					<button type="submit">更新する</button>
+					<a href="/diary">キャンセル</a>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+
+</html>

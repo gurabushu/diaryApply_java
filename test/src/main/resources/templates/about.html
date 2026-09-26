@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>つぶやき日記</title>
+
+	<link rel="stylesheet" href="/css/about.css">
+</head>
+
+<body>
+	<div class="main-header">
+		<div class="logo header-item">
+			<a href="/">つぶやき日記</a>
+		</div>
+		<div class="nav-right">
+			<div class="header-item">
+				<a href="/diary">日記一覧</a>
+			</div>
+			<div class="header-item">
+				<a href="/diary/new">新規投稿</a>
+			</div>
+		</div>
+	</div>
+
+	<section style="background-color: aliceblue; padding: 40px;">
+		<h2>新規作成</h2>
+		<form th:object="${diaryForm}" th:action="@{/diary}" method="post">
+			<div class="form-warpper">
+				<div class="f-title">
+					<p>タイトル</p>
+					<input th:field="*{title}" type="text" placeholder="タイトル入力">
+					<p class="err-mes" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+					</p>
+				</div>
+				<div class="f-text">
+					<p>記録本文</p>
+					<textarea th:field="*{body}" placeholder="朝散歩をした。">
+					</textarea>
+					<p class="err-mes" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">
+					</p>
+				</div>
+			</div>
+
+			<button type="submit" class="inquire-btn">
+				送信
+			</button>
+
+		</form>
+	</section>
+</body>
+
+</html>

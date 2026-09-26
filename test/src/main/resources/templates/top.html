@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>つぶやき日記</title>
+	
+	<style>
+		.logo{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: auto 18px;
+		}
+		
+		.logo a{
+			text-decoration: none;
+			color: white;
+			font-weight: bold;
+			padding:18px;
+			background-color: rgb(80, 119, 153);
+			border-radius: 8px;
+		}
+		
+	</style>
+	
+</head>
+
+<body>
+	<div class="main-header">
+		<div class="logo header-item">
+			<h1 th:text="${title}">タイトル</h1>
+			<a th:href="@{/login}">ログイン</a>
+		</div>
+		
+	</div>
+	
+	
+
+   
+
+
+</body>
+
+</html>

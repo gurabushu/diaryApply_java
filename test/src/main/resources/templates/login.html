@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>つぶやき日記</title>
+	<style>
+		h1 {
+			text-align: center;
+
+		}
+
+		.section-wrapper {
+			margin: auto;
+			width: 80%;
+
+		}
+
+		.form {
+			margin: auto;
+			width: 100%;
+			text-align: center;
+		}
+
+		.text {
+			padding: 18px;
+			text-align: left;
+			width: 60%;
+			margin: auto;
+		}
+
+		input {
+			width: 90%;
+
+		}
+		
+		.topBackbtn{
+			text-decoration: none;
+			display: inline-block;
+			padding: 8px;
+			background-color: #333;
+			border-radius: 8px;
+		
+		}
+		
+		.topBackbtn a{
+			color: white;
+			text-decoration: none;
+			font-weight: bold;
+		}			
+			
+	</style>
+</head>
+
+<body>
+
+	<h1>ログイン</h1>
+
+
+	<section class="section-wrapper">
+		<div class="form">
+			<div action="/login" method="post" class="text">
+				<div>
+					<label>メールアドレス</label>
+					<input type="email" name="email">
+				</div>
+
+				<div>
+					<label>パスワード</label>
+					<input type="password" name="password">
+				</div>
+			</div>
+
+			<button type="submit">ログイン</button>
+
+
+			</form>
+	</section>
+	
+	<div class="topBackbtn">
+		<a th:href="@{/top}">戻る</a>
+	</div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
