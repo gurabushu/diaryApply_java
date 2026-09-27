@@ -6,5 +6,7 @@ import com.example.demo.entity.Dyuser;
 
 public interface DyuserRepository extends JpaRepository<Dyuser,Long>{
 	
+	Dyuser findByEmail(String email);
+	
 	
 }

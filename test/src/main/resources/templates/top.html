@@ -4,40 +4,62 @@
 <head>
 	<meta charset="UTF-8">
 	<title>つぶやき日記</title>
-	
+
 	<style>
-		.logo{
+		* {
+			padding: 0;
+			margin: 0;
+
+		}
+
+		.logo {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin: auto 18px;
+			padding: 8px;
 		}
-		
-		.logo a{
+
+		.logo a {
 			text-decoration: none;
 			color: white;
 			font-weight: bold;
-			padding:18px;
+			padding: 18px;
 			background-color: rgb(80, 119, 153);
 			border-radius: 8px;
 		}
-		
+
+		.nav {
+			display: flex;
+			justify-content: right;
+		}
+
+		.nav a {
+			margin: 10px;
+		}
+
+		.main-header {
+			background-color: rgb(192, 192, 192);
+		}
 	</style>
-	
+
 </head>
 
 <body>
 	<div class="main-header">
 		<div class="logo header-item">
 			<h1 th:text="${title}">タイトル</h1>
-			<a th:href="@{/login}">ログイン</a>
+			<div class="nav">
+				<a th:href="@{/login}">ログイン</a>
+				<a th:href="@{/create}">新規登録</a>
+			</div>
 		</div>
-		
-	</div>
-	
-	
 
-   
+	</div>
+
+
+
+
 
 
 </body>

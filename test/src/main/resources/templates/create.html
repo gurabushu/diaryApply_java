@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>つぶやき日記</title>
+	<title>新規登録</title>
 	<style>
 		h1 {
 			text-align: center;
@@ -22,30 +22,16 @@
 			text-align: center;
 		}
 
-		form {
-			margin: auto;
-			width: 70%;
-			text-align: center;
-
-		}
-
-
 		.text {
 			padding: 18px;
-			text-align: left;
 			width: 60%;
 			margin: auto;
-		}
-
-		.label {
-			text-align: left;
 		}
 
 		input {
 			width: 90%;
 
 		}
-
 
 		a {
 			text-decoration: none;
@@ -74,31 +60,44 @@
 			color: white;
 			padding: 8px;
 			width: 10%;
-
+			text-align: center;
+		
 		}
+		
 
 		.footerbtn {
 			text-align: center;
 			margin-top: 28px;
 
-
 		}
-
 
 		.subbtn {
 			margin: 18px;
 		}
 	</style>
+
 </head>
 
 <body>
-
-	<h1>ログイン</h1>
-
+	<h1>新規登録</h1>
 
 	<section class="section-wrapper">
 		<div class="form">
-			<form th:action="@{/login}" method="post">
+			
+			<form th:action="@{/create}" 
+				  th:object="${dyuserForm}" 
+				  method="post" 
+				  class="text">
+				  
+				  <p th:if="${error}"
+				     th:text="${error}">
+				 </p>
+				<div>
+					<label>ユーザー名</label>
+					<input type="text" name="name">
+					<p th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}"></p>
+				</div>
 				<div>
 					<label>メールアドレス</label>
 					<input type="email" name="email">
@@ -106,14 +105,15 @@
 
 				<div>
 					<label>パスワード</label>
-					<input type="password" name="password">
+					<input type="password" name="password"　th:field="*{password}">
+					<p th:if="${#fields.hasErrors('password')}"
+					   th:errors="*{password}">
+				   </p>
 				</div>
 
-				<button type="submit">ログイン</button>
+				<button type="submit">登録</button>
 
 			</form>
-			<p th:if="${error}" th:text="${error}"></p>
-
 	</section>
 
 	<div class="footerbtn">
@@ -121,9 +121,10 @@
 			<a th:href="@{/top}">戻る</a>
 		</div>
 		<div class="subbtn">
-			<a th:href="@{/create}">新規登録</a>
+			<a th:href="@{/login}">ログインへ</a>
 		</div>
 	</div>
+
 
 
 
