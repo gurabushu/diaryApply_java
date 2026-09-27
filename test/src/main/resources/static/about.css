@@ -1,0 +1,127 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.main-header {
+	background-color: #5e9799;
+	display: flex;
+	background-color: #5e9799;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+
+
+.main-header a {
+	color: #FFF;
+	text-decoration: none;
+
+}
+
+.nav-right {
+	display: flex;
+}
+
+.main-header .logp {
+	margin-right: auto;
+}
+
+
+.header-item {
+	padding: 20px;
+}
+
+.nav-right .header-item a {
+	padding: atuo;
+}
+
+section {
+	width: 60%;
+	margin: 100px auto;
+}
+
+/*フォーム画面*/
+
+h2 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+
+.from {
+	width: 80%;
+}
+
+
+form-wrapper {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+
+}
+
+input {
+	height: 90px;
+	resize: vertical;
+}
+
+textarea {
+	text-align: left;
+	display: block;
+	width: 80%;
+	height: 100px;
+	margin: auto;
+
+}
+
+
+input {
+	width: 80%;
+	height: 20px;
+	text-align: left;
+	margin: auto;
+	display: block;
+}
+
+
+.err-mes {
+	color: red;
+}
+
+
+.inquire-btn {
+	margin: auto;
+	display: block;
+	text-align: center;
+	margin-top: 40px;
+	background-color: #00a39b;
+	color: white;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 300;
+	border: none;
+	border-radius: 4px;
+	padding: 12px 28px;
+}
+
+/*一覧*/
+.wrapper {
+	text-align: center;
+	width: 70%;
+	height: auto;
+	display: block;
+	margin: 20px auto;
+	background-color: #FFF;
+	padding: 18px;
+
+}
+
+/*edit画面のボタン配置*/
+.button-wrapper{
+	text-align: center;
+}
