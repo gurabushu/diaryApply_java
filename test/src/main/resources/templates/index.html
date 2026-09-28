@@ -4,21 +4,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>つぶやき日記</title>
+
+	<style>
+		.nav a {
+			background-color: #333;
+			border-radius: 8px;
+			padding: 18px;
+
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.main-nav-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 18px;
+
+		}
+	</style>
 </head>
 
 <body>
 	<div class="main-nav-header">
 		<h1>日記アプリ</h1>
-		
-		
+
+		<nav class="nav">
+			<a th:href="@{/new}">日記を書く</a>
+			<a th:href="@{/logout}">ログアウト</a>
+		</nav>
 	</div>
-	
-	
+
+
+
 	<footer>
 		<p>© 2026 Tsubuyaki Diary. All Rights Reserved.</p>
 	</footer>
 
-   
+
 
 
 </body>

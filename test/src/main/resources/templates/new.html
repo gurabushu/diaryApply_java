@@ -3,45 +3,86 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>新規投稿</title>
-	<link rel="stylesheet" href="/css/about.css">
+	<title>つぶやき日記</title>
+
+	<style>
+	
+		*{
+			padding: 0;
+			margin:0;
+		}	
+	
+		.nav a {
+			background-color: #333;
+			border-radius: 8px;
+			padding: 18px;
+
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.main-nav-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 18px;
+
+		}
+		
+		footer{
+			background-color: #333;
+			
+		}
+		
+		footer p{
+			color: white;
+			font-weight: bold;
+			background-color: #333;
+			text-align: center;
+			
+		}
+	
+		
+		.main-wrapper{
+			width: 80%;
+			margin:auto;
+			
+			
+		}
+		
+	</style>
 </head>
 
-<body>
-	<div class="main-header">
-		<div class="logo header-item"><a href="/">つぶやき日記</a></div>
-		<div class="nav-right">
-			<div class="header-item">
-				<a href="/diary">日記一覧</a>
-			</div>
-			<div class="header-item">
-				<a href="/diary/new">新規投稿</a>
-			</div>
-		</div>
+<section>
+	<div class="main-nav-header">
+		<h1>日記アプリ</h1>
+
+		<nav class="nav">
+			<a th:href="@{/index}">TOPへ</a>
+			<a th:href="@{/list}">日記の一覧</a>
+			<a th:href="@{/logout}">ログアウト</a>
+		</nav>
 	</div>
-
-	<section style="background-color: aliceblue; padding: 40px;">
-		<h2>新規投稿</h2>
-
-		<form th:object="${diaryForm}" th:action="@{/diary}" method="post">
-			<div class="form-warpper">
-				<div class="f-title">
-					<p>タイトル</p>
-					<input th:field="*{title}" type="text" placeholder="タイトル入力">
-					<p class="err-mes" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-				</div>
-
-				<div class="f-text">
-					<p>記録本文</p>
-					<textarea th:field="*{body}" rows="8" placeholder="朝散歩をした。"></textarea>
-					<p class="err-mes" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></p>
-				</div>
-			</div>
-
-			<button type="submit" class="inquire-btn">送信</button>
-			<a href="/diary">キャンセル</a>
-		</form>
+	
+	<section class="main-wrapper">
+	
+	<h2>日記を書く</h2>
+	
 	</section>
+	
+
+
+
+	<footer>
+		<p>© 2026 Tsubuyaki Diary. All Rights Reserved.</p>
+	</footer>
+
+
+
+
 </body>
 
 </html>

@@ -34,7 +34,13 @@ public class LoginController {
 	//ログアウト後画面遷移
 	@GetMapping("/logout")
 	public String logout() {
-		return "logout";
+		return "top";
+	}
+	
+	//日記を書くの遷移
+	@GetMapping("/new")
+	public String newDiary() {
+		return "new";
 	}
 
 	//新規登録画面
@@ -81,7 +87,7 @@ public class LoginController {
 		boolean loginSuccess = userservice.login(email, password);
 
 		if (loginSuccess) {
-			return "redirect:/top";
+			return "redirect:/index";
 		}
 
 		model.addAttribute(
@@ -90,5 +96,7 @@ public class LoginController {
 
 		return "login";
 	}
+	
+
 
 }
