@@ -6,12 +6,11 @@
 	<title>つぶやき日記</title>
 
 	<style>
-	
-		*{
+		* {
 			padding: 0;
-			margin:0;
-		}	
-	
+			margin: 0;
+		}
+
 		.nav a {
 			background-color: #333;
 			border-radius: 8px;
@@ -31,27 +30,70 @@
 			margin: 18px;
 
 		}
-		
-		footer{
+
+		footer {
 			background-color: #333;
-			
+
 		}
-		
-		footer p{
+
+		footer p {
 			color: white;
 			font-weight: bold;
 			background-color: #333;
 			text-align: center;
-			
+
 		}
-	
-		
-		.main-wrapper{
+
+
+		.main-wrapper {
 			width: 80%;
+			margin: auto;
+
+		}
+		
+		.form-box{
+			padding: 18px;
+			width: 350px;
 			margin:auto;
 			
 			
 		}
+		
+		forn{
+			width:90%;
+			margin:auto;
+		}
+		
+		h2{
+			text-align: center;
+		}
+		
+		.main-wrapper{
+			padding: 28px;
+		}
+		
+		textarea {
+		    text-align: left;
+		    padding: 10px;
+			width: 350px;
+			height: 150px;
+		}
+		
+		button{
+			margin:auto;
+			width: 20%;
+			text-align: center;
+		}
+		
+		.button-wrapper{
+		width:40%;
+		margin: 28px auto;
+		text-align: center;
+		
+		}
+	
+		
+		
 		
 	</style>
 </head>
@@ -66,13 +108,36 @@
 			<a th:href="@{/logout}">ログアウト</a>
 		</nav>
 	</div>
-	
+
 	<section class="main-wrapper">
-	
-	<h2>日記を書く</h2>
-	
+
+		<h2>日記を書く</h2>
+
 	</section>
-	
+
+	<main>
+		<form th:action="@{/new}" method="post">
+			
+			<div class="form-box">
+				<label for="title">タイトル</label>
+				<input type="text" id="title" name="title" placeholder="タイトル入力">
+			</div>
+
+			<div class="form-box">
+				<label for="body">本文</label>
+				<textarea id="body" name="body" placeholder="今日の出来事を書いてください。">
+
+				</textarea>
+			</div>
+
+			<div class="button-wrapper">
+				<button type="submit">投稿する</button>
+			</div>
+
+		</form>
+
+	</main>
+
 
 
 
@@ -83,6 +148,6 @@
 
 
 
-</body>
+	</body>
 
 </html>

@@ -24,6 +24,12 @@ public class LoginController {
 	public String index() {
 		return "index";
 	}
+	
+	//list日記一覧ページ表示
+	@GetMapping("/list")
+	public String list() {
+		return "list";
+	}
 
 	//ログイン画面遷移
 	@GetMapping("/login")
@@ -36,7 +42,7 @@ public class LoginController {
 	public String logout() {
 		return "top";
 	}
-	
+
 	//日記を書くの遷移
 	@GetMapping("/new")
 	public String newDiary() {
@@ -56,24 +62,26 @@ public class LoginController {
 			@Valid DyuserForm form,
 			BindingResult result,
 			Model model) {
-		//バリデーションエラーメッセージの表示
-		if (result.hasErrors()) {
-			return "create";
-		}
-		//登録成功
-		boolean createSuccess = userservice.create(
-				form.getName(),
-				form.getEmail(),
-				form.getPassword());
-		//メールアドレスが重複している。
-		if (!createSuccess) {
-			model.addAttribute(
-					"error",
-					"このメールアドレスはすでに登録されています。");
-			return "index";
-		}
-		//登録成功
-		return "redirect:/index";
+	//バリデーションエラーメッセージの表示
+	if (result.hasErrors()) {
+		return "create";
+	}
+	//登録成功
+	boolean createSuccess = userservice.create(
+			form.getName(),
+			form.getEmail(),
+			form.getPassword());
+	//メールアドレスが重複している。
+	if (!createSuccess) {
+		model.addAttribute(
+				"error",
+				"このメールアドレスはすでに登録されています。");
+		return "index";
+
+	}	
+	
+	//登録成功
+	return "redirect:/index";
 
 	}
 
@@ -97,6 +105,20 @@ public class LoginController {
 		return "login";
 	}
 	
-
+	
+	
+	
+	//日記の内容とタイトルをDBへ送る処理
+	@PostMapping("/new")
+	public String diaryWrite(
+			@RequestParam String title,
+			@RequestParam String body,
+			Model model
+			) {
+		System.out.println("タイトル：" + title);
+		System.out.println("本文:" + body);
+		
+		return "redirect:/list";
+	}
 
 }
