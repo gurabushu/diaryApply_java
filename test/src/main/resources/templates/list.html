@@ -39,6 +39,38 @@
 			
 		}
 		
+		h2{
+			text-align: center;
+		}
+	
+		.diary-list{
+			width: 60%;
+			margin:auto;
+			text-align: center;
+			
+			
+		}
+		
+		.diary-card-body{
+			border: solid black 1px;
+			
+		}
+		
+		.diary-card-body{
+			margin:28px;
+			
+		}
+		
+		h3{
+			margin-bottom:38px;
+			margin-top:18px;
+		}
+		
+		.diary-card-body p{
+			margin:18px;
+			
+		}
+		
 	</style>
 </head>
 
@@ -51,6 +83,19 @@
 			<a th:href="@{/logout}">ログアウト</a>
 		</nav>
 	</div>
+	
+	<h2>日記一覧</h2>
+	
+	<div class="diary-list">
+		<div class="diary-card" th:each="diary : ${diaries}">
+			<p th:text="'日記件数：'+ ${#lists.size(diaries)}"></p>
+			<div class="diary-card-body">
+			<h3 th:text="${diary.title}"></h3>
+			<p th:text="${diary.body}"></p>
+			</div>
+		</div>
+	</div>
+	
 
 
 

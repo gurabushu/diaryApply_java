@@ -46,5 +46,9 @@ public class DiaryService {
 		repository.deleteById(id);
 	}
 	
+	public void save(Diary diary) {
+		repository.save(diary);
+	}
+		
 
-		}
+}

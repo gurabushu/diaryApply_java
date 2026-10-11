@@ -19,18 +19,6 @@ public class LoginController {
 	@Autowired
 	private UserService userservice;
 
-	//TOPページ表示
-	@GetMapping("/index")
-	public String index() {
-		return "index";
-	}
-	
-	//list日記一覧ページ表示
-	@GetMapping("/list")
-	public String list() {
-		return "list";
-	}
-
 	//ログイン画面遷移
 	@GetMapping("/login")
 	public String login() {
@@ -76,12 +64,12 @@ public class LoginController {
 		model.addAttribute(
 				"error",
 				"このメールアドレスはすでに登録されています。");
-		return "index";
+		return "top";
 
 	}	
 	
 	//登録成功
-	return "redirect:/index";
+	return "redirect:/list";
 
 	}
 
@@ -95,7 +83,7 @@ public class LoginController {
 		boolean loginSuccess = userservice.login(email, password);
 
 		if (loginSuccess) {
-			return "redirect:/index";
+			return "redirect:/top";
 		}
 
 		model.addAttribute(
@@ -104,21 +92,4 @@ public class LoginController {
 
 		return "login";
 	}
-	
-	
-	
-	
-	//日記の内容とタイトルをDBへ送る処理
-	@PostMapping("/new")
-	public String diaryWrite(
-			@RequestParam String title,
-			@RequestParam String body,
-			Model model
-			) {
-		System.out.println("タイトル：" + title);
-		System.out.println("本文:" + body);
-		
-		return "redirect:/list";
-	}
-
 }
