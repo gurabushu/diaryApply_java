@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>つぶやき日記</title>
+	<style>
+		h1 {
+			text-align: center;
+
+		}
+
+		.section-wrapper {
+			margin: auto;
+			width: 80%;
+
+		}
+
+		.form {
+			margin: auto;
+			width: 100%;
+			text-align: center;
+		}
+
+		form {
+			margin: auto;
+			width: 70%;
+			text-align: center;
+
+		}
+
+
+		.text {
+			padding: 18px;
+			text-align: left;
+			width: 60%;
+			margin: auto;
+		}
+
+		.label {
+			text-align: left;
+		}
+
+		input {
+			width: 90%;
+
+		}
+
+
+		a {
+			text-decoration: none;
+			margin: 8px;
+		}
+
+		.topBackbtn {
+			text-decoration: none;
+			display: inline-block;
+			padding: 8px;
+			background-color: #333;
+			border-radius: 8px;
+			margin: auto 18px;
+
+		}
+
+		.topBackbtn a {
+			color: white;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		button {
+			background-color: #333;
+			border-radius: 8px;
+			color: white;
+			padding: 8px;
+			width: 10%;
+
+		}
+
+		.footerbtn {
+			text-align: center;
+			margin-top: 28px;
+
+
+		}
+
+
+		.subbtn {
+			margin: 18px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>ログイン</h1>
+
+
+	<section class="section-wrapper">
+		<div class="form">
+			<form th:action="@{/login}" method="post">
+				<div>
+					<label>メールアドレス</label>
+					<input type="email" name="email">
+				</div>
+
+				<div>
+					<label>パスワード</label>
+					<input type="password" name="password">
+				</div>
+
+				<button type="submit">ログイン</button>
+
+			</form>
+			<p th:if="${error}" th:text="${error}"></p>
+
+	</section>
+
+	<div class="footerbtn">
+		<div class="topBackbtn">
+			<a th:href="@{/top}">戻る</a>
+		</div>
+		<div class="subbtn">
+			<a th:href="@{/create}">新規登録</a>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

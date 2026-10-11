@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
+	<style>
+		h1 {
+			text-align: center;
+
+		}
+
+		.section-wrapper {
+			margin: auto;
+			width: 80%;
+
+		}
+
+		.form {
+			margin: auto;
+			width: 100%;
+			text-align: center;
+		}
+
+		.text {
+			padding: 18px;
+			width: 60%;
+			margin: auto;
+		}
+
+		input {
+			width: 90%;
+
+		}
+
+		a {
+			text-decoration: none;
+			margin: 8px;
+		}
+
+		.topBackbtn {
+			text-decoration: none;
+			display: inline-block;
+			padding: 8px;
+			background-color: #333;
+			border-radius: 8px;
+			margin: auto 18px;
+
+		}
+
+		.topBackbtn a {
+			color: white;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		button {
+			background-color: #333;
+			border-radius: 8px;
+			color: white;
+			padding: 8px;
+			width: 10%;
+			text-align: center;
+		
+		}
+		
+
+		.footerbtn {
+			text-align: center;
+			margin-top: 28px;
+
+		}
+
+		.subbtn {
+			margin: 18px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>新規登録</h1>
+
+	<section class="section-wrapper">
+		<div class="form">
+			
+			<form th:action="@{/create}" 
+				  th:object="${dyuserForm}" 
+				  method="post" 
+				  class="text">
+				  
+				  <p th:if="${error}"
+				     th:text="${error}">
+				 </p>
+				<div>
+					<label>ユーザー名</label>
+					<input type="text" name="name">
+					<p th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}"></p>
+				</div>
+				<div>
+					<label>メールアドレス</label>
+					<input type="email" name="email">
+				</div>
+
+				<div>
+					<label>パスワード</label>
+					<input type="password" name="password"　th:field="*{password}">
+					<p th:if="${#fields.hasErrors('password')}"
+					   th:errors="*{password}">
+				   </p>
+				</div>
+
+				<button type="submit">登録</button>
+
+			</form>
+	</section>
+
+	<div class="footerbtn">
+		<div class="topBackbtn">
+			<a th:href="@{/top}">戻る</a>
+		</div>
+		<div class="subbtn">
+			<a th:href="@{/login}">ログインへ</a>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>
